@@ -1,0 +1,15 @@
+server:
+  port: 8181
+welloculusapp:
+  url: http://localhost:8080/welloculus
+mongodb:
+  host: 192.168.146.54
+  port: 27017
+  username: admin
+  pass: admin
+  facilitatordbname: facilitator
+  providerdbname:
+    provider1: provider
+    provider2: prov_db_2
+logging.level.org.springframework.web: DEBUG
+logging.file: ./welloculus-api-gateway.log
