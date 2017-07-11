@@ -21,18 +21,21 @@ public final class Constants {
 		private ApiPath() {
 		}
 
-		public static final String ID = "id";
-		public static final String PATIENTS = "/ApiGateway/patients";
-		public static final String DEVICES = "/ApiGateway/devices";
+		public static final String DEVICE_ID = "deviceId";
+		public static final String USER_ID = "userId";
+		public static final String PATIENT_ID = "patientId";
+		public static final String ROLE = "role";
+		public static final String PATIENTS = "/ApiGateway/{role}/patients";
+		public static final String DEVICES = "/ApiGateway/{role}/devices";
 		public static final String GET_PATIENTS = "/getPatients";
-		public static final String GET_PATIENT_BY_ID = "/getPatient/{id}";
-		public static final String UPDATE_PATIENT_BY_ID = "/updatePatient/{id}";
-		public static final String DELETE_PATIENT_BY_ID = "/deletePatient/{id}";
+		public static final String GET_PATIENT_BY_ID = "/getPatient";
+		public static final String UPDATE_PATIENT_BY_ID = "/updatePatient";
+		public static final String DELETE_PATIENT_BY_ID = "/deletePatient";
 		public static final String ADD_PATIENT = "/addPatient";
 		public static final String GET_DEVICES = "/getDevices";
-		public static final String GET_DEVICE_BY_ID = "/getDevice/{id}";
-		public static final String UPDATE_DEVICE_BY_ID = "/updateDevice/{id}";
-		public static final String DELETE_DEVICE_BY_ID = "/deleteDevice/{id}";
+		public static final String GET_DEVICE_BY_ID = "/getDevice";
+		public static final String UPDATE_DEVICE_BY_ID = "/updateDevice";
+		public static final String DELETE_DEVICE_BY_ID = "/deleteDevice";
 		public static final String ADD_DEVICE = "/addDevice";
 	}
 }
