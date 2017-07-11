@@ -22,9 +22,8 @@ public final class Constants {
 		}
 
 		public static final String ID = "id";
-		public static final String ROLE = "role";
-		public static final String PATIENTS = "/ApiGateway/{role}/patients";
-		public static final String DEVICES = "/ApiGateway/{role}/devices";
+		public static final String PATIENTS = "/ApiGateway/patients";
+		public static final String DEVICES = "/ApiGateway/devices";
 		public static final String GET_PATIENTS = "/getPatients";
 		public static final String GET_PATIENT_BY_ID = "/getPatient/{id}";
 		public static final String UPDATE_PATIENT_BY_ID = "/updatePatient/{id}";
