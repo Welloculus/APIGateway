@@ -1,0 +1,67 @@
+{"properties": [
+  {
+    "name": "welloculusapp.url",
+    "type": "java.lang.String",
+    "description": "A description for 'welloculusapp.url'"
+  },
+  {
+    "name": "mongodb.host",
+    "type": "java.lang.String",
+    "description": "A description for 'mongodb.host'"
+  },
+  {
+    "name": "mongodb.port",
+    "type": "java.lang.String",
+    "description": "A description for 'mongodb.port'"
+  },
+  {
+    "name": "mongodb.username",
+    "type": "java.lang.String",
+    "description": "A description for 'mongodb.username'"
+  },
+  {
+    "name": "mongodb.pass",
+    "type": "java.lang.String",
+    "description": "A description for 'mongodb.pass'"
+  },
+  {
+    "name": "mongodb.facilitator-dBname",
+    "type": "java.lang.String",
+    "description": "A description for 'mongodb.facilitator-dBname'"
+  },
+  {
+    "name": "mongodb.provider-dBname.provider1",
+    "type": "java.lang.String",
+    "description": "A description for 'mongodb.provider-dBname.provider1'"
+  },
+  {
+    "name": "mongodb.provider-d-bname.provider2",
+    "type": "java.lang.String",
+    "description": "A description for 'mongodb.provider-d-bname.provider2'"
+  },
+  {
+    "name": "mongodb.provider-d-bname.provider2",
+    "type": "java.lang.String",
+    "description": "A description for 'mongodb.provider-d-bname.provider2'"
+  },
+  {
+    "name": "mongodb.facilitatordbname",
+    "type": "java.lang.String",
+    "description": "A description for 'mongodb.facilitatordbname'"
+  },
+  {
+    "name": "mongodb.providerdbname.provider1",
+    "type": "java.lang.String",
+    "description": "A description for 'mongodb.providerdbname.provider1'"
+  },
+  {
+    "name": "mongodb.providerdbname.provider2",
+    "type": "java.lang.String",
+    "description": "A description for 'mongodb.providerdbname.provider2'"
+  },
+  {
+    "name": "logging.level.org.springframework.web",
+    "type": "java.lang.String",
+    "description": "A description for 'logging.level.org.springframework.web'"
+  }
+]}
