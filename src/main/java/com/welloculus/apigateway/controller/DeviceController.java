@@ -8,10 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -38,7 +36,7 @@ public class DeviceController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = GET_DEVICES, method = RequestMethod.GET)
-	public Map<String, Object> getDevices(@RequestHeader HttpHeaders headers, @PathVariable(ROLE) String role) {
+	public Map<String, Object> getDevices() {
 		logger.debugStartOfMethod();
 		Map<String, Object> response = new HashMap<String, Object>();
 		try {
@@ -58,7 +56,7 @@ public class DeviceController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = GET_DEVICE_BY_ID, method = RequestMethod.GET)
-	public Map<String, Object> getDeviceById(@RequestHeader HttpHeaders headers, @PathVariable(ROLE) String role) {
+	public Map<String, Object> getDeviceById(@PathVariable(ID) String deviceId) {
 		logger.debugStartOfMethod();
 		Map<String, Object> response = new HashMap<String, Object>();
 		try {
@@ -75,7 +73,7 @@ public class DeviceController {
 
 	@ResponseBody
 	@RequestMapping(value = UPDATE_DEVICE_BY_ID, method = RequestMethod.POST, consumes = JSON_CONTENT)
-	public Map<String, Object> updateDeviceById(@RequestHeader HttpHeaders headers, @PathVariable(ROLE) String role, @RequestBody String deviceString) {
+	public Map<String, Object> updateDeviceById(@PathVariable(ID) String deviceId, @RequestBody String deviceString) {
 		logger.debugStartOfMethod();
 		Map<String, Object> response = new HashMap<String, Object>();
 		try {
@@ -91,7 +89,7 @@ public class DeviceController {
 	
 	@ResponseBody
 	@RequestMapping(value = ADD_DEVICE, method = RequestMethod.POST, consumes = JSON_CONTENT)
-	public Map<String, Object> addDevice(@RequestHeader HttpHeaders headers, @PathVariable(ROLE) String role, @RequestBody String deviceString) {
+	public Map<String, Object> addDevice(@RequestBody String deviceString) {
 		logger.debugStartOfMethod();
 		Map<String, Object> response = new HashMap<String, Object>();
 		try {

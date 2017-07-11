@@ -13,12 +13,19 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable();
-		http.antMatcher("/ApiGateway/devices**").authorizeRequests().anyRequest().hasRole("SUPERUSER");
+	    http.csrf().disable();
+		http
+        .antMatcher("/ApiGateway/**")                               
+        .authorizeRequests()
+            .anyRequest().hasRole("SUPERUSER")
+            .and()
+        .httpBasic();
 	}
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("superuser").password("superuser").roles("SUPERUSER");
+		auth.inMemoryAuthentication().withUser("superuser").password("superuser").roles("SUPERUSER").and().withUser("admin")
+				.password("admin").roles("ADMIN");
 	}
+
 }
