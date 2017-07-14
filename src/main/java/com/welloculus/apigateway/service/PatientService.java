@@ -12,8 +12,10 @@ public interface PatientService {
 
 	public JSONObject getPatientById(UserRole userRole, String userId, String patientId);
 
-	public void updatePatientById(UserRole userRole, String userId, String patientId, String patientString);
-
 	public void addPatient(UserRole userRole, String userId, String patientInfo);
+	
+	public boolean updatePatientById(UserRole userRole, String userId, String patientId, String patientString);
+
+	public boolean deletePatientById(UserRole userRole, String userId, String patientId);
 
 }

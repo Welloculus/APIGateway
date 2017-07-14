@@ -1,6 +1,5 @@
 package com.welloculus.apigateway.util;
 
-
 import org.slf4j.LoggerFactory;
 
 import com.welloculus.apigateway.exception.WelloculusException;
@@ -16,25 +15,26 @@ import org.slf4j.Logger;
 public class CustomLogger {
 
 	private static final String LOGGER_NAME = "API_GATEWAY";
-	
+
 	private static CustomLogger customLogger = null;
 	Logger logger = null;
-	
+
 	private CustomLogger(Logger basicLogger) {
 		this.logger = basicLogger;
 	}
-	
+
 	public static CustomLogger getLogger() {
 		if (customLogger == null) {
-			customLogger = new CustomLogger((Logger)LoggerFactory.getLogger(LOGGER_NAME));
+			customLogger = new CustomLogger((Logger) LoggerFactory.getLogger(LOGGER_NAME));
 		}
 		return customLogger;
 	}
 
-	public void error(Exception e){
+	public void error(Exception e) {
 		error(e.getMessage());
 		debug(e);
 	}
+
 	public void error(String message) {
 		message = getCaller() + message;
 		logger.error(message);
@@ -44,23 +44,23 @@ public class CustomLogger {
 		message = getCaller() + message;
 		logger.debug(message);
 	}
-	
+
 	public void debug(String message, Exception e) {
 		message = getCaller() + message;
-		if(e instanceof WelloculusException){		
+		if (e instanceof WelloculusException) {
 			WelloculusException ctsmException = (WelloculusException) e;
-			message += " Exception: - "+ctsmException.getErrorCode().name()+" : "+ctsmException.getErrorMessage();
+			message += " Exception: - " + ctsmException.getErrorCode().name() + " : " + ctsmException.getErrorMessage();
 		}
 		logger.debug(message);
 	}
 
 	public void debug(Exception e) {
 		String message = getCaller();
-		if(e instanceof WelloculusException){		
+		if (e instanceof WelloculusException) {
 			WelloculusException ctsmException = (WelloculusException) e;
-			message += " Exception: - "+ctsmException.getErrorCode().name()+" : "+ctsmException.getErrorMessage();
-			if(ctsmException.getException()!=null){
-			  ctsmException.getException().printStackTrace();
+			message += " Exception: - " + ctsmException.getErrorCode().name() + " : " + ctsmException.getErrorMessage();
+			if (ctsmException.getException() != null) {
+				ctsmException.getException().printStackTrace();
 			}
 		}
 		logger.debug(message);
@@ -98,7 +98,7 @@ public class CustomLogger {
 	public void debugEndOfMethod() {
 		// Although end of method info logs are converted to debug level, but we
 		// need not encrypt these due to high occurrence frequency and absence
-		// of any data at any point of time. 
+		// of any data at any point of time.
 		String message = getCaller();
 		message += "End of Method";
 		logger.debug(message);
@@ -108,10 +108,11 @@ public class CustomLogger {
 		String tag = "";
 		try {
 			StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
-			tag = (stackTraceElements[3].getFileName()).replaceAll(".java", ".")+ stackTraceElements[3].getMethodName() + "()";
+			tag = (stackTraceElements[3].getFileName()).replaceAll(".java", ".") + stackTraceElements[3].getMethodName()
+					+ "()";
 		} catch (Exception e) {
-			//do nothing
+			// do nothing
 		}
-		return tag+": ";
+		return tag + ": ";
 	}
 }
