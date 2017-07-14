@@ -22,22 +22,24 @@ public class UserDataServiceImpl implements UserDataService {
 	private static final String COLLECTION_NAME = "userdatas";
 	@Autowired
 	MongoDBConnector mongoConnector;
-	
+
 	@Override
 	public JSONArray getUserData(UserRole userRole, String userId) throws WelloculusException {
-		MongoCollection<Document> userdatasCollection = mongoConnector.getDatabase(userRole, userId).getCollection(COLLECTION_NAME);
+		MongoCollection<Document> userdatasCollection = mongoConnector.getDatabase(userRole, userId)
+				.getCollection(COLLECTION_NAME);
 		BasicDBObject whereQuery = new BasicDBObject();
 		FindIterable<Document> resultIterable = userdatasCollection.find(whereQuery);
 		return MongoDBUtils.toJSONArray(resultIterable);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public void addUserData(UserRole userRole, String userId, String userdataString) {
-		MongoCollection<Document> userdatasCollection = mongoConnector.getDatabase(userRole, userId).getCollection(COLLECTION_NAME);
-        Document userdata = new Document();
-        userdata.putAll(JSONObject.fromObject(userdataString));
-        userdatasCollection.insertOne(userdata);
+		MongoCollection<Document> userdatasCollection = mongoConnector.getDatabase(userRole, userId)
+				.getCollection(COLLECTION_NAME);
+		Document userdata = new Document();
+		userdata.putAll(JSONObject.fromObject(userdataString));
+		userdatasCollection.insertOne(userdata);
 	}
 
 }
