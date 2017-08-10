@@ -1,16 +1,16 @@
 package com.welloculus.apigateway.controller;
 
 import static com.welloculus.apigateway.constants.Constants.JSON_CONTENT;
+import static com.welloculus.apigateway.constants.Constants.PATIENT_ID;
+import static com.welloculus.apigateway.constants.Constants.ROLE;
 import static com.welloculus.apigateway.constants.Constants.SUCCESS;
+import static com.welloculus.apigateway.constants.Constants.USER_ID;
 import static com.welloculus.apigateway.constants.Constants.ApiPath.ADD_PATIENT;
 import static com.welloculus.apigateway.constants.Constants.ApiPath.DELETE_PATIENT_BY_ID;
 import static com.welloculus.apigateway.constants.Constants.ApiPath.GET_PATIENTS;
 import static com.welloculus.apigateway.constants.Constants.ApiPath.GET_PATIENT_BY_ID;
 import static com.welloculus.apigateway.constants.Constants.ApiPath.PATIENTS;
-import static com.welloculus.apigateway.constants.Constants.ApiPath.PATIENT_ID;
-import static com.welloculus.apigateway.constants.Constants.ApiPath.ROLE;
 import static com.welloculus.apigateway.constants.Constants.ApiPath.UPDATE_PATIENT_BY_ID;
-import static com.welloculus.apigateway.constants.Constants.ApiPath.USER_ID;
 
 import java.util.HashMap;
 import java.util.Map;
