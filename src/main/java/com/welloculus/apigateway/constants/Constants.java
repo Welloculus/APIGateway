@@ -25,6 +25,7 @@ public final class Constants {
 	public static final String START_DATE = "start_date";
 	public static final String END_DATE = "end_date";
 	public static final String QUERY = "query";
+	public static final String SESSION_ID = "sessionId";
 	
 	public static final class ApiPath {
 		private ApiPath() {
