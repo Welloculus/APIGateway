@@ -22,7 +22,7 @@ public class MongoDBUtils {
 	public static JSONObject toJSONObject(FindIterable<Document> resultIterable) {
 		JSONObject result = null;
 		MongoCursor<Document> cursor = resultIterable.iterator();
-		while (cursor.hasNext()) {
+		if(cursor.hasNext()) {
 			result = JSONObject.fromObject(cursor.next().toJson());
 		}
 		return result;

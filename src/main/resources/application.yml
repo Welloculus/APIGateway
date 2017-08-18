@@ -1,12 +1,13 @@
 server:
   port: 8181
-welloculusapp:
-  url: http://localhost:8080/welloculus
+kafka.servers: 192.168.146.54:9092
+apiai.token: 
 mongodb:
   host: 192.168.146.54
   port: 27017
   username: admin
   pass: admin
+  welliedbname: wellie
   facilitatordbname: facilitator
   providerdbname:
     provider1: provider

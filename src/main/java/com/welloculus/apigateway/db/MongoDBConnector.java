@@ -19,6 +19,9 @@ public class MongoDBConnector {
 
 	@Value("${mongodb.facilitatordbname}")
 	String facilitatorDbName;
+	
+	@Value("${mongodb.welliedbname}")
+	String wellieDbName;
 
 	static CustomLogger logger = CustomLogger.getLogger();
 	
@@ -35,11 +38,18 @@ public class MongoDBConnector {
 		MongoDatabase database = null;
 		if(role.equals(UserRole.PROVIDER)){
 			database = getProviderDB(userId);
+		}else if(role.equals(UserRole.WELLIE)){
+			database = getWellieDB();
 		}else{
 			database = getfacilitatorDB();
 		}
 		return database;
 	}
+	
+	private MongoDatabase getWellieDB() {
+		return mongo.getDatabase(wellieDbName);
+	}
+
 	private MongoDatabase getfacilitatorDB() {
 		return mongo.getDatabase(facilitatorDbName);
 	}

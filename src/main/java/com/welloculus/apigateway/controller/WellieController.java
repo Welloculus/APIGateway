@@ -1,7 +1,6 @@
 package com.welloculus.apigateway.controller;
 
 import static com.welloculus.apigateway.constants.Constants.JSON_CONTENT;
-import static com.welloculus.apigateway.constants.Constants.QUERY;
 import static com.welloculus.apigateway.constants.Constants.SUCCESS;
 import static com.welloculus.apigateway.constants.Constants.ApiPath.WELLIE;
 import static com.welloculus.apigateway.constants.Constants.ApiPath.WELLIE_QUERY;
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.welloculus.apigateway.apiai.APIAIHandler;
+import com.welloculus.apigateway.apiai.APIAIService;
 import com.welloculus.apigateway.constants.Constants;
 import com.welloculus.apigateway.util.CustomLogger;
 
@@ -29,7 +28,7 @@ import net.sf.json.JSONObject;
 public class WellieController {
 
 	@Autowired
-	APIAIHandler apiaiHandler;
+	APIAIService apiaiService;
 
 	static CustomLogger logger = CustomLogger.getLogger();
 
@@ -41,8 +40,7 @@ public class WellieController {
 		try {
 			
 			JSONObject queryObject = JSONObject.fromObject(queryJson);
-			String queryString = queryObject.getString(QUERY);
-			String responseString = apiaiHandler.getResponse(queryString);
+			String responseString = apiaiService.getResponse(queryObject);
 			if(responseString!=null){				
 				response.put(Constants.RESPONSE_CONTENT, responseString);
 				response.put(SUCCESS, true);

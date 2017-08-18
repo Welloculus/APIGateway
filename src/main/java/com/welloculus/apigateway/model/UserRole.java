@@ -5,7 +5,7 @@ import com.welloculus.apigateway.exception.WelloculusException;
 
 public enum UserRole {
 
-	PROVIDER("provider"), FACILITATOR("facilitator"), SUPPLIER("supplier");
+	PROVIDER("provider"), FACILITATOR("facilitator"), SUPPLIER("supplier"), WELLIE("wellie");
 
 	String key;
 

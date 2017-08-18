@@ -1,0 +1,5 @@
+target/
+.settings/
+welloculus-api-gateway.log
+.project
+.classpath
