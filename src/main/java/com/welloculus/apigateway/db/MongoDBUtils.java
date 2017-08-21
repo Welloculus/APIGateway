@@ -28,7 +28,8 @@ public class MongoDBUtils {
 		return result;
 	}
 	
-	public static JSONArray mergeResultArrays(FindIterable<Document> resultIterable, String arrayName) {
+	public static JSONArray mergeResultArrays(FindIterable<Document> resultIterable) {
+		String arrayName = "data";
 		JSONArray result = new JSONArray();
 		MongoCursor<Document> cursor = resultIterable.iterator();
 		while (cursor.hasNext()) {

@@ -1,6 +1,5 @@
 package com.welloculus.apigateway.service.impl;
 
-import static com.mongodb.client.model.Projections.*;
 import static com.welloculus.apigateway.constants.Constants.DATA_TYPE;
 import static com.welloculus.apigateway.constants.Constants.END_DATE;
 import static com.welloculus.apigateway.constants.Constants.START_DATE;
@@ -54,17 +53,13 @@ public class HealthRecordServiceImpl implements HealthRecordService {
 		String endDate = filter.getString(END_DATE);
 		
 		BasicDBObject query = new BasicDBObject();
-		if(dataType!=null){
-			query.put(dataType, new BasicDBObject("$exists", true));
-		}
+
+		query.put("data_type",new BasicDBObject("$eq", dataType));
 		query.put("date", new BasicDBObject("$gte", startDate).append("$lte", endDate));
 		
 		FindIterable<Document> resultIterable = userDataCollection.find(query).limit(1000);
-		if(dataType!=null){			
-			resultIterable.projection(fields(include(dataType), exclude("_id")));
-		}
 		JSONObject resultObject = new JSONObject();
-		resultObject.put(dataType, MongoDBUtils.mergeResultArrays(resultIterable, dataType));
+		resultObject.put(dataType, MongoDBUtils.mergeResultArrays(resultIterable));
 		return resultObject;
 	}
 
