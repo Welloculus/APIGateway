@@ -1,5 +1,5 @@
-target/
-.settings/
-welloculus-api-gateway.log
-.project
-.classpath
+APIGateway/target/
+APIGateway/.settings/
+APIGateway/welloculus-api-gateway.log
+APIGateway/.project
+APIGateway/.classpath

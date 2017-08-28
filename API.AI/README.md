@@ -1,0 +1,2 @@
+# API.AI
+API.AI is used in API Gateway to enable NLP (Natural language processing) in Wellie. API Gateway uses API.AI SDK to manage connection and send the query request to server. Received response is then processed based upon the action returned from API.AI server.
